@@ -8,7 +8,7 @@
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
     <script type="text/javascript" src="js/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
-    <script src="./js/mrender.js"></script>
+    <script src="js/mrender.js"></script>
 
     <link rel="stylesheet" href="css/bootstrap.min.css" media="screen">
     <link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css" media="screen">
@@ -72,7 +72,8 @@
 
             <div id="jieguo" style="display: block;">
                 <div class="s1"><label class="e">您的死亡时间</label><span class="z" id="dieDate" style="width: 317px;">2116年9月11日 享年98岁</span></div>
-                <div class="s1"><label class="e">您的生命仅剩</label><span class="z" id="lifeLeft" style="width: 317px;">35767天</span></div>
+                <div class="s1"><label class="e">您的生命仅剩</label><span class="z" id="lifeLeft" style="width: 217px;">35767天</span></div>
+                <div class="s1"><label class="e"></label><span class="z" id="TimeLeft" style="width: 217px;">35767天</span></div>
                 <div class="clear"></div>
             </div>
         </form>
@@ -83,6 +84,7 @@
         $("#txtHeight").val("153");
         $("#txtWeight").val("39");
         $("#birth").val("1998-07-07");
+
     </script>
 
 
@@ -166,16 +168,29 @@
             else if (sleep == 1) myLife = myLife - 2
             else if (sleep == 2) myLife = myLife + 2;
 
-            var dtBirth = new Date(year, month - 1, day);
 
-            dtDie = new Date(Date.parse(dtBirth) + (86400000 * 365 * myLife));
+            var dtBirth = new Date(year, month - 1, day); //出生日期时间戳
+            dtDie = new Date(Date.parse(dtBirth) + (86400000 * 365 * myLife)); //死亡日期时间戳
+            var dtNow = new Date(); //当前日期时间戳
 
-            var dtNow = new Date();
             var days = parseInt((dtDie - dtNow) / 86400000);
+
+
             $("#dieDate").html(dtDie.getFullYear() + "年" + (dtDie.getMonth() + 1) + "月" + (dtDie.getDate()) + "日 享年" + myLife + "岁");
 
-            $("#lifeLeft").html(days + "天");
+
+            fomtime();
+            
+
         }
+
+
+            function fomtime() {
+                dtNow = new Date();
+                $("#TimeLeft").html((23 - dtNow.getHours()) + "时" + (59 - dtNow.getMinutes()) + "分" + (60 - dtNow.getSeconds()) + "秒");
+                setTimeout("fomtime()", 1000);
+            }
+
 
         function bmiYears(bmi) {
             var years = 0;
@@ -189,175 +204,11 @@
             else years = -5; //bmiMsg='体重过低';
             return years;
         }
+
     </script>
 
-    <!--<div class="datetimepicker datetimepicker-dropdown-bottom-right dropdown-menu" style="left: 47px; z-index: 2147483647; display: none; top: 113px;">
-        <div class="datetimepicker-minutes" style="display: none;">
-            <table class=" table-condensed">
-                <thead>
-                    <tr>
-                        <th class="prev" style="visibility: visible;"><i class="icon-arrow-left"></i></th>
-                        <th colspan="5" class="switch">5 十月 2018</th>
-                        <th class="next" style="visibility: visible;"><i class="icon-arrow-right"></i></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td colspan="7"><span class="minute">15:00</span><span class="minute">15:05</span><span class="minute">15:10</span><span class="minute">15:15</span><span class="minute">15:20</span><span class="minute">15:25</span><span class="minute">15:30</span><span class="minute">15:35</span><span class="minute">15:40</span><span class="minute">15:45</span><span class="minute">15:50</span><span class="minute active">15:55</span></td>
-                    </tr>
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <th colspan="7" class="today">今天</th>
-                    </tr>
-                </tfoot>
-            </table>
-        </div>
-        <div class="datetimepicker-hours" style="display: none;">
-            <table class=" table-condensed">
-                <thead>
-                    <tr>
-                        <th class="prev" style="visibility: visible;"><i class="icon-arrow-left"></i></th>
-                        <th colspan="5" class="switch">5 十月 2018</th>
-                        <th class="next" style="visibility: visible;"><i class="icon-arrow-right"></i></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td colspan="7"><span class="hour">0:00</span><span class="hour">1:00</span><span class="hour">2:00</span><span class="hour">3:00</span><span class="hour">4:00</span><span class="hour">5:00</span><span class="hour">6:00</span><span class="hour">7:00</span><span class="hour">8:00</span><span class="hour">9:00</span><span class="hour">10:00</span><span class="hour">11:00</span><span class="hour">12:00</span><span class="hour">13:00</span><span class="hour">14:00</span><span class="hour active">15:00</span><span class="hour">16:00</span><span class="hour">17:00</span><span class="hour">18:00</span><span class="hour">19:00</span><span class="hour">20:00</span><span class="hour">21:00</span><span class="hour">22:00</span><span class="hour">23:00</span></td>
-                    </tr>
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <th colspan="7" class="today">今天</th>
-                    </tr>
-                </tfoot>
-            </table>
-        </div>
-        <div class="datetimepicker-days" style="display: block;">
-            <table class=" table-condensed">
-                <thead>
-                    <tr>
-                        <th class="prev" style="visibility: visible;"><i class="icon-arrow-left"></i></th>
-                        <th colspan="5" class="switch">十月 2018</th>
-                        <th class="next" style="visibility: visible;"><i class="icon-arrow-right"></i></th>
-                    </tr>
-                    <tr>
-                        <th class="dow">一</th>
-                        <th class="dow">二</th>
-                        <th class="dow">三</th>
-                        <th class="dow">四</th>
-                        <th class="dow">五</th>
-                        <th class="dow">六</th>
-                        <th class="dow">日</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="day old">24</td>
-                        <td class="day old">25</td>
-                        <td class="day old">26</td>
-                        <td class="day old">27</td>
-                        <td class="day old">28</td>
-                        <td class="day old">29</td>
-                        <td class="day old">30</td>
-                    </tr>
-                    <tr>
-                        <td class="day">1</td>
-                        <td class="day">2</td>
-                        <td class="day">3</td>
-                        <td class="day">4</td>
-                        <td class="day active">5</td>
-                        <td class="day">6</td>
-                        <td class="day today">7</td>
-                    </tr>
-                    <tr>
-                        <td class="day">8</td>
-                        <td class="day">9</td>
-                        <td class="day">10</td>
-                        <td class="day">11</td>
-                        <td class="day">12</td>
-                        <td class="day">13</td>
-                        <td class="day">14</td>
-                    </tr>
-                    <tr>
-                        <td class="day">15</td>
-                        <td class="day">16</td>
-                        <td class="day">17</td>
-                        <td class="day">18</td>
-                        <td class="day">19</td>
-                        <td class="day">20</td>
-                        <td class="day">21</td>
-                    </tr>
-                    <tr>
-                        <td class="day">22</td>
-                        <td class="day">23</td>
-                        <td class="day">24</td>
-                        <td class="day">25</td>
-                        <td class="day">26</td>
-                        <td class="day">27</td>
-                        <td class="day">28</td>
-                    </tr>
-                    <tr>
-                        <td class="day">29</td>
-                        <td class="day">30</td>
-                        <td class="day">31</td>
-                        <td class="day new">1</td>
-                        <td class="day new">2</td>
-                        <td class="day new">3</td>
-                        <td class="day new">4</td>
-                    </tr>
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <th colspan="7" class="today">今天</th>
-                    </tr>
-                </tfoot>
-            </table>
-        </div>
-        <div class="datetimepicker-months" style="display: none;">
-            <table class="table-condensed">
-                <thead>
-                    <tr>
-                        <th class="prev" style="visibility: visible;"><i class="icon-arrow-left"></i></th>
-                        <th colspan="5" class="switch">2018</th>
-                        <th class="next" style="visibility: visible;"><i class="icon-arrow-right"></i></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td colspan="7"><span class="month">一月</span><span class="month">二月</span><span class="month">三月</span><span class="month">四月</span><span class="month">五月</span><span class="month">六月</span><span class="month">七月</span><span class="month">八月</span><span class="month">九月</span><span class="month">十月</span><span class="month">十一月</span><span class="month active">十二月</span></td>
-                    </tr>
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <th colspan="7" class="today">今天</th>
-                    </tr>
-                </tfoot>
-            </table>
-        </div>
-        <div class="datetimepicker-years" style="display: none;">
-            <table class="table-condensed">
-                <thead>
-                    <tr>
-                        <th class="prev" style="visibility: visible;"><i class="icon-arrow-left"></i></th>
-                        <th colspan="5" class="switch">2010-2019</th>
-                        <th class="next" style="visibility: visible;"><i class="icon-arrow-right"></i></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td colspan="7"><span class="year old">2009</span><span class="year">2010</span><span class="year">2011</span><span class="year">2012</span><span class="year">2013</span><span class="year">2014</span><span class="year">2015</span><span class="year">2016</span><span class="year">2017</span><span class="year active">2018</span><span class="year">2019</span><span class="year old">2020</span></td>
-                    </tr>
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <th colspan="7" class="today">今天</th>
-                    </tr>
-                </tfoot>
-            </table>
-        </div>
-    </div>-->
+
+
 </body>
 
 </html>
