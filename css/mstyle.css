@@ -491,13 +491,13 @@ i,
 }
 
 #main #jisuan .b {
-    background-color: #4191DC;
+    background-color: darkred;
     color: #ffffff;
-    font-size: 18px;
+    font-size: 20px;
     height: 42px;
-    line-height: 42px;
+    line-height: 42px;  
     display: block;
-    border: 1px solid #2371BC;
+    border: 2px solid red;
     border-radius: 3px;
     width: 100%;
 }
