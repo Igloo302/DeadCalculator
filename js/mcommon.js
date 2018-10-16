@@ -82,6 +82,7 @@ function isWeiXin(){
 }
 
 //用来返回顶部的处理
+/* 
 $(document).ready(function($) {
   $("<div id='toTop' class='iconfont icon-gotop'></div>").appendTo('body');
   $("#toTop").css({
@@ -111,7 +112,7 @@ $(document).ready(function($) {
       scrollTop: "0px"
     },
     666)
-  });
+  });*/
 
   //移动端模拟hover事件
   $(document).on('touchstart touchmove','.list .item,#classify ul>li,#main #jisuan .b,#main #tianxie .r1,.r2,.r3,.r4,#subcat li',function (e){
