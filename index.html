@@ -9,6 +9,8 @@
     <script type="text/javascript" src="js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
     <script type="text/javascript" src="js/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
     <script src="js/mrender.js"></script>
+    <script type="text/javascript" src="js/jquery.leanModal.min.js"></script>
+
 
     <link rel="stylesheet" href="css/bootstrap.min.css" media="screen">
     <link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css" media="screen">
@@ -71,9 +73,9 @@
             <div id="jisuan"><input type="button" id="btnCalc" onclick="btnCalc_OnClick();" value="计算" class="b" c=""></div>
 
             <div id="jieguo" style="display: block;">
-                <div class="s1"><label class="e">您的死亡时间</label><span class="z" id="dieDate" style="width: 317px;">2116年9月11日 享年98岁</span></div>
-                <div class="s1"><label class="e">您的生命仅剩</label><span class="z" id="lifeLeft" style="width: 217px;">35767天</span></div>
-                <div class="s1"><label class="e"></label><span class="z" id="TimeLeft" style="width: 217px;">35767天</span></div>
+                <div class="s1"><label class="e">您的死亡时间</label><span class="z" id="dieDate" style="width: 317px;"></span></div>
+                <div class="s1"><label class="e">您的生命仅剩</label><span class="z" id="lifeLeft" style="width: 217px;"></span></div>
+                <div class="s1"><label class="e"></label><span class="z" id="TimeLeft" style="width: 217px;"></span></div>
                 <div class="clear"></div>
             </div>
         </form>
@@ -177,6 +179,7 @@
 
 
             $("#dieDate").html(dtDie.getFullYear() + "年" + (dtDie.getMonth() + 1) + "月" + (dtDie.getDate()) + "日 享年" + myLife + "岁");
+            $("#lifeLeft").html(days + "天");
 
 
             fomtime();
@@ -206,8 +209,8 @@
         }
 
     </script>
-
-
+    
+    
 
 </body>
 
