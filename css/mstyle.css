@@ -2,6 +2,10 @@ html {
     -webkit-text-size-adjust: 100%;
 }
 
+.bold{
+    font-weight: bold;
+}
+
 body {
     line-height: 1.6;
     font-family: -apple-system-font, "Helvetica Neue", Arial, sans-serif;
@@ -376,6 +380,7 @@ i,
 
 #lead #title {
     font-size: 30px;
+    
 }
 
 #happy {
@@ -408,7 +413,7 @@ i,
     min-height: 44px;
     line-height: 44px;
     margin: 0;
-
+    
     padding:0 30px;
 }
 
@@ -609,6 +614,7 @@ table.table td {
     padding: 14px 30px;
     color: #fff;
     font-size: 15px;
+    
     word-wrap: break-word;
 }
 
