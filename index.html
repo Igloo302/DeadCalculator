@@ -57,6 +57,16 @@
                         <option value="2">较多</option>
                         <option value="3">酗酒</option>
                     </select></div>
+                <div class="r2"><label class="e">运动</label><select class="k" id="selSport" style="width: 386px;">
+                        <option value="0">很少</option>
+                        <option value="1">一般</option>
+                        <option value="2">经常</option>
+                    </select></div>
+                <div class="r2"><label class="e">睡眠</label><select class="k" id="selSleep" style="width: 386px;">
+                        <option value="0">不足</option>
+                        <option value="1">一般</option>
+                        <option value="2">充足</option>
+                    </select></div>
             </div>
             <div id="jisuan"><input type="button" id="btnCalc" onclick="btnCalc_OnClick();" value="计算" class="b" c=""></div>
 
@@ -88,6 +98,8 @@
             var smoke = $("#selSmoke").val();
             var mind = $("#selMind").val();
             var drink = $("#selDrink").val();
+            var sport = $("#selSport").val();
+            var sleep = $("#selSleep").val();
 
             var height = parseFloat($("#txtHeight").val());
             if (isNaN(height)) {
@@ -122,7 +134,7 @@
             var _BMI = BMI(weight, height / 100);
             _BMI = _BMI.toFixed(1);
             _BMI = parseFloat(_BMI);
-            calc(year, month, day, _BMI, sex, mind, smoke, drink);
+            calc(year, month, day, _BMI, sex, mind, smoke, drink, sport, sleep);
         }
 
         function btnReset_OnClick() {
@@ -133,7 +145,7 @@
             return weight / eval(height * height);
         }
 
-        function calc(year, month, day, bmi, sex, mind, smoke, drink) {
+        function calc(year, month, day, bmi, sex, mind, smoke, drink, sport, sleep) {
             if (bmi <= 0) return;
             var myLife = 90;
 
@@ -147,6 +159,12 @@
             if (drink == 1) myLife = myLife - 1
             else if (drink == 2) myLife = myLife - 2
             else if (drink == 3) myLife = myLife - 5;
+            if (sport == 0) myLife = myLife - 5
+            else if (sport == 1) myLife = myLife - 2
+            else if (sport == 2) myLife = myLife + 2;
+            if (sleep == 0) myLife = myLife - 5
+            else if (sleep == 1) myLife = myLife - 2
+            else if (sleep == 2) myLife = myLife + 2;
 
             var dtBirth = new Date(year, month - 1, day);
 
