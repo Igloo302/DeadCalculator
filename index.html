@@ -32,7 +32,7 @@
                 <!--                <div class="r2"><label class="e">生日</label><input id="birth" name="birth" type="text" class="k" m="" jd="" readonly="" style="width: 386px; background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGP6zwAAAgcBApocMXEAAAAASUVORK5CYII=&quot;);"></div>-->
 
                 <div class="r2"><label class="e">生日</label><input id="birth" name="birth" type="text" class="k" m="" jd="" readonly="" style="width: 386px; "></div>
-                
+
 
                 <div class="r2"><label class="e">性别</label><select class="k" id="selSex" style="width: 386px;">
                         <option value="0">男</option>
@@ -44,7 +44,6 @@
                         <option value="0">一般</option>
                         <option value="1">乐观</option>
                         <option value="2">悲观</option>
-                        <option value="3">伤感</option>
                     </select></div>
                 <div class="r2"><label class="e">吸烟</label><select class="k" id="selSmoke" style="width: 386px;">
                         <option value="0">不吸</option>
@@ -68,6 +67,13 @@
             </div>
         </form>
     </div>
+
+    <script id="init">
+        console.log("Init Setup");
+        $("#txtHeight").val("153");
+        $("#txtWeight").val("39");
+        $("#birth").val("1998-07-07");
+    </script>
 
 
     <!--计算年龄-->
@@ -136,7 +142,6 @@
             if (sex == 1) myLife = myLife + 5; //女性一般比男性多活几年
             if (mind == 1) myLife = myLife + 5 //乐观
             else if (mind == 2) myLife = myLife - 10 //悲观
-            else if (mind == 2) myLife = myLife - 5; //伤感
             if (smoke == 1) //吸烟-5
                 myLife = myLife - 5;
             if (drink == 1) myLife = myLife - 1
