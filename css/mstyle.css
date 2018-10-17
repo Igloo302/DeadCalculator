@@ -9,10 +9,7 @@ html {
 body {
     line-height: 1.6;
     font-family: -apple-system-font, "Helvetica Neue", Arial, sans-serif;
-    background: url('tou.png') no-repeat;
     background-color: #000;
-    background-size: 500px;
-    background-position: center;
     color: #fff;
     -webkit-overflow-scrolling: touch;
     -webkit-text-size-adjust: 100% !important;
@@ -395,6 +392,9 @@ i,
     width: 100%;
     min-height: 100px;
     visibility: hidden;
+    background: url('tou.png') no-repeat;
+    background-size: 400px;
+    background-position: top;
 }
 
 .h0{
