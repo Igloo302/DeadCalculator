@@ -21,7 +21,7 @@
 <body ontouchstart="" style="">
 
     <div id="lead" rel="148">
-        <div id="title">死亡日期计算器</div>
+        <div id="title">死亡日期计算器<br>DEATHDATE CALCULATOR</div>
     </div>
     <div id="memo">
         <p>
@@ -35,35 +35,56 @@
 
                 <div class="r2"><label class="e">生日</label><input id="birth" name="birth" type="text" class="k" m="" jd="" readonly="" style="width: 386px; "></div>
 
-
+                <hr class="h0" />
+                
                 <div class="r2"><label class="e">性别</label><select class="k" id="selSex" style="width: 386px;">
                         <option value="0">男</option>
                         <option value="1">女</option>
                     </select></div>
+                
+                <hr class="h0" />
+                
                 <div class="r2"><label class="e">身高(cm)</label><input type="number" id="txtHeight" class="k" m="" style="width: 355px;" placeholder="请填写"></div>
+                
+                <hr class="h0" />
+                
                 <div class="r2"><label class="e">体重(kg)</label><input type="number" id="txtWeight" class="k" m="" style="width: 359px;" placeholder="请填写"></div>
+                
+                <hr class="h0" />
+                
                 <div class="r2"><label class="e">心态</label><select class="k" id="selMind" style="width: 386px;">
                         <option value="0">一般</option>
                         <option value="1">乐观</option>
                         <option value="2">悲观</option>
                     </select></div>
+                
+                <hr class="h0" />
+                
                 <div class="r2"><label class="e">吸烟</label><select class="k" id="selSmoke" style="width: 386px;">
                         <option value="0">不吸</option>
                         <option value="1">吸烟</option>
                     </select></div>
                 <div class="clear"></div>
 
+                <hr class="h0" />
+                
                 <div class="r2"><label class="e">饮酒</label><select class="k" id="selDrink" style="width: 386px;">
                         <option value="0">很少</option>
                         <option value="1">一般</option>
                         <option value="2">较多</option>
                         <option value="3">酗酒</option>
                     </select></div>
+                
+                <hr class="h0" />
+                
                 <div class="r2"><label class="e">运动</label><select class="k" id="selSport" style="width: 386px;">
                         <option value="0">很少</option>
                         <option value="1">一般</option>
                         <option value="2">经常</option>
                     </select></div>
+                
+                <hr class="h0" />
+                
                 <div class="r2"><label class="e">睡眠</label><select class="k" id="selSleep" style="width: 386px;">
                         <option value="0">不足</option>
                         <option value="1">一般</option>
@@ -73,9 +94,9 @@
             <div id="jisuan"><input type="button" id="btnCalc" onclick="btnCalc_OnClick();" value="计算" class="b" c=""></div>
 
             <div id="jieguo" style="display: block;">
-                <div class="s1"><label class="e">您的死亡时间</label><span class="z" id="dieDate" style="width: 317px;"></span></div>
-                <div class="s1"><label class="e">您的生命仅剩</label><span class="z" id="lifeLeft" style="width: 217px;"></span></div>
-                <div class="s1"><label class="e"></label><span class="z" id="TimeLeft" style="width: 217px;"></span></div>
+                <div class="s1"><label class="e">您的死亡时间</label><span class="z bold" id="dieDate" style="width: 317px;"></span></div>
+                <div class="s1"><label class="e">您的生命仅剩</label><span class="z bold" id="lifeLeft" style="width: 217px;"></span></div>
+                <div class="s1"><label class="e"></label><span class="z bold" id="TimeLeft" style="width: 217px;"></span></div>
                 <div class="clear"></div>
             </div>
         </form>
